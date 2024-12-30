@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "your-project-name"
+version = "0.1.0"
+description = "Your project description"
+authors = ["amin atash <atashnezhad1@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.109.0"
+uvicorn = "^0.25.0"
+joblib = "^1.3.2"
+numpy = "^1.26.3"
+scikit-learn = "^1.3.2"
+pydantic = "^2.6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -15,19 +15,18 @@ class InputData(BaseModel):
 
 
 class PredictionOutput(BaseModel):
-    predictions: List[int]
-    probabilities: List[float]
+    predictions: int
+    probabilities: float
 
 
 @app.post("/predict", response_model=PredictionOutput)
-def predict(data=None):
-    if data is None:
-        data = [5.1, 3.5, 1.4, 0.2]
+def predict(data: InputData):
+
     features = np.array(data.features)
     predictions = model.predict(features)
     probabilities = model.predict_proba(features).max(axis=1)
 
-    return PredictionOutput(predictions=predictions.tolist(), probabilities=probabilities.tolist())
+    return PredictionOutput(predictions=predictions, probabilities=probabilities)
 
 
 @app.get("/")
